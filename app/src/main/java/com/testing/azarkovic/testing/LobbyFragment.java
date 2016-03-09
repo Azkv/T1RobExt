@@ -22,4 +22,8 @@ public class LobbyFragment extends Fragment
         welcomeLabel.setText("Welcome "+Globals.user.getName()+"! What would you like to do first?");
         return v;
     }
+    public void gitTest()
+    {
+
+    }
 }
