@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="70dip"
+    android:weightSum="100"
+    android:layout_marginTop="8dip"
+    android:background="#ffffffff"
+    >
+
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="27"
+        android:layout_marginLeft="5dip"
+        >
+
+        <ImageView
+            android:id="@+id/fragment_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bill_gates"
+            android:scaleType="fitXY"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_over"
+            android:scaleType="fitXY"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="73"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:weightSum="100">
+
+        <TextView
+            android:id="@+id/fragment_name"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="32"
+            android:gravity="left|bottom"
+            android:text="NAME PH"
+            android:textSize="16sp"
+            android:padding="0dip"
+            android:textStyle="bold"
+            android:textColor="#52B7D9"
+            android:layout_marginLeft="5dip"
+            />
+        <TextView
+            android:id="@+id/fragment_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="20"
+            android:gravity="top"
+            android:text="TITLE PH"
+            android:textSize="13sp"
+            android:padding="0dip"
+            android:textStyle="italic"
+            android:textColor="#BABABA"
+            android:layout_marginLeft="10dip"
+            />
+        <LinearLayout
+            android:id="@+id/fragment_icons_line"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="30"
+            android:padding="0dip"
+            android:layout_marginLeft="10dip"
+            android:orientation="horizontal"
+            android:weightSum="100"/>
+    </LinearLayout>
+
+</LinearLayout>
