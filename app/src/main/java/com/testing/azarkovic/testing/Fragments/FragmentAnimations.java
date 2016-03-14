@@ -1,14 +1,13 @@
-package com.testing.azarkovic.testing;
+package com.testing.azarkovic.testing.Fragments;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import junit.framework.Test;
+import com.testing.azarkovic.testing.R;
 
 
 /**
@@ -30,7 +29,7 @@ public class FragmentAnimations
         }
         else return null;
     }
-    public static void FadeOut(TestFragment f)
+    public static void FadeOut(Fragment f)
     {
         if(!f.isAdded()) return;
         getFragmentManager().beginTransaction()
@@ -40,7 +39,7 @@ public class FragmentAnimations
             .commit();
     }
 
-    public static void FadeIn(int container, TestFragment f)
+    public static void FadeIn(int container, Fragment f)
     {
         getFragmentManager().beginTransaction()
             .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_out)
@@ -49,7 +48,7 @@ public class FragmentAnimations
             .commit();
     }
 
-    public static void SlideInFromLeft(int container, TestFragment f)
+    public static void SlideInFromLeft(int container, Fragment f)
     {
 
         getFragmentManager().beginTransaction()
@@ -58,7 +57,7 @@ public class FragmentAnimations
                 .addToBackStack(null)
                 .commit();
     }
-    public static void SlideOutToRight(TestFragment f)
+    public static void SlideOutToRight(Fragment f)
     {
         if(!f.isAdded()) return;
         getFragmentManager().beginTransaction()
@@ -68,7 +67,7 @@ public class FragmentAnimations
                 .commit();
     }
 
-    public static void SlideUpAndFadeOut(TestFragment f)
+    public static void SlideUpAndFadeOut(Fragment f)
     {
         if(!f.isAdded()) return;
         getFragmentManager().beginTransaction()
@@ -77,7 +76,7 @@ public class FragmentAnimations
                 .addToBackStack(null)
                 .commit();
     }
-    public static void SlideUpAndFadeIn(int container,TestFragment f)
+    public static void SlideUpAndFadeIn(int container,Fragment f)
     {
         if(f.isAdded()) return;
         getFragmentManager().beginTransaction()
@@ -87,35 +86,5 @@ public class FragmentAnimations
                 .commit();
     }
 
-    public static void ScaleUp(TestFragment f)
-    {
-        if(!f.isAdded()) return;
-        for (Fragment tf : getFragmentManager().getFragments())
-        {
-            if(tf instanceof TestFragment)
-            if(!tf.equals(f))
-            {
-                if(((TestFragment)tf).scaled)
-                {
-                    ScaleDown((TestFragment)tf);
-                    ((TestFragment) tf).scaled = false;
-                }
-            }
-        }
-        Animation anim = AnimationUtils.loadAnimation(ctx, R.anim.scale_up);
-        anim.setFillAfter(true);
-        anim.setFillEnabled(true);
-        f.getView().bringToFront();
-        ((TestFragment) f).getView().startAnimation(anim);
-    }
 
-    public static void ScaleDown(TestFragment f)
-    {
-        if(!f.isAdded()) return;
-        Animation anim = AnimationUtils.loadAnimation(ctx, R.anim.scale_down);
-        anim.setFillAfter(true);
-        anim.setFillEnabled(true);
-        f.getView().bringToFront();
-        ((TestFragment) f).getView().startAnimation(anim);
-    }
 }

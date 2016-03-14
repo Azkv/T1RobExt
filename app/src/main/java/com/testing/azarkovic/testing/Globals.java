@@ -1,6 +1,10 @@
 package com.testing.azarkovic.testing;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
+
+import com.testing.azarkovic.testing.Database.Model.User;
+import com.testing.azarkovic.testing.Fragments.FragmentAnimations;
 
 import butterknife.ButterKnife;
 
@@ -10,7 +14,7 @@ import butterknife.ButterKnife;
 public class Globals
 {
     static public User user;
-    static public void SetupActivity(AppCompatActivity activity)
+    static public void SetupActivity(Activity activity)
     {
         FragmentAnimations.setup(activity);
         ButterKnife.inject(activity);
