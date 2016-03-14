@@ -1,5 +1,7 @@
 package com.testing.azarkovic.testing.Database.Helper;
 
+import com.testing.azarkovic.testing.Database.Model.User;
+
 /**
  * Created by azarkovic on 14.3.2016..
  */
@@ -12,5 +14,6 @@ public class DBStatics
     public static Class[] tables = new Class[]
             {
                     //classes for tables go here
+                    User.class
             };
 }

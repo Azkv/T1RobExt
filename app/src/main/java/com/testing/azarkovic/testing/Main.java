@@ -5,16 +5,18 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.stmt.PreparedQuery;
 import com.testing.azarkovic.testing.Database.Model.User;
 import com.testing.azarkovic.testing.Fragments.LobbyFragment;
 import com.testing.azarkovic.testing.Fragments.LoginFragment;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.List;
 
 public class Main extends BaseActivity {
 
-    SQLiteDatabase ldb;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,7 @@ public class Main extends BaseActivity {
                 .add(R.id.main_PRL,lf,"lobby fragment")
                 .commit();
     }
-    public void checkUser(String uid, String name, String surname, Date arrivalDate, String language, String room)
+    public void checkUser(String uid, String name, String surname, String arrivalDate, String language, String room)
     {
         Globals.user = new User(uid,name, surname ,arrivalDate,language,room);
         goToLobby();
@@ -52,10 +54,11 @@ public class Main extends BaseActivity {
         {
             try {
                 Dao userDao = getHelper().getDaoForClass(User.class);
-                User user = (User)userDao.queryForId("1");
-                if(user != null)
+                List<User> users = (userDao.queryForAll());
+                if(users.size() > 0)
                 {
-
+                    Globals.user = users.get(0);
+                    goToLobby();
                 }
                 else
                 {

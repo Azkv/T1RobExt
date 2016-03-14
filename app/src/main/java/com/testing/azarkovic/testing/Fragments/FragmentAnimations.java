@@ -71,20 +71,12 @@ public class FragmentAnimations
     {
         if(!f.isAdded()) return;
         getFragmentManager().beginTransaction()
-                .setCustomAnimations(R.anim.slide_up_and_fade_out, R.anim.slide_up_and_fade_out, R.anim.slide_up_and_fade_in, R.anim.slide_up_and_fade_in)
+                .setCustomAnimations(R.anim.slide_up_and_fade_out, R.anim.slide_up_and_fade_out, R.anim.slide_down_and_fade_in, R.anim.slide_down_and_fade_in)
                 .remove(f)
                 .addToBackStack(null)
                 .commit();
     }
-    public static void SlideUpAndFadeIn(int container,Fragment f)
-    {
-        if(f.isAdded()) return;
-        getFragmentManager().beginTransaction()
-                .setCustomAnimations(R.anim.slide_up_and_fade_in, R.anim.slide_up_and_fade_in, R.anim.slide_up_and_fade_out, R.anim.slide_up_and_fade_out)
-                .add(container, f)
-                .addToBackStack(null)
-                .commit();
-    }
+
 
 
 }

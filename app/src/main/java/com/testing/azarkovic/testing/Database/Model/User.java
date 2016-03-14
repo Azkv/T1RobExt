@@ -26,8 +26,8 @@ public class User
     private String name;
     @DatabaseField(columnName = SURNAME, dataType = DataType.STRING, width = 45)
     private String surname;
-    @DatabaseField(columnName = ARRIVAL_DATE, dataType = DataType.DATE_STRING)
-    private Date arrivalDate;
+    @DatabaseField(columnName = ARRIVAL_DATE, dataType = DataType.STRING)
+    private String arrivalDate;
     @DatabaseField(columnName = LANGUAGE, dataType = DataType.STRING, width = 45)
     private String language;
     @DatabaseField(columnName = ROOM, dataType = DataType.STRING, width = 45)
@@ -35,7 +35,7 @@ public class User
 
     public User(){};
 
-    public User(String uuid, String name, String surname, Date arrivalDate, String language, String room) {
+    public User(String uuid, String name, String surname, String arrivalDate, String language, String room) {
         this.uuid = uuid;
         this.name = name;
         this.surname = surname;
@@ -79,11 +79,11 @@ public class User
         this.surname = surname;
     }
 
-    public Date getArrivalDate() {
+    public String getArrivalDate() {
         return arrivalDate;
     }
 
-    public void setArrivalDate(Date arrivalDate) {
+    public void setArrivalDate(String arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
 
