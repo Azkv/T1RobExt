@@ -27,7 +27,7 @@ public class Main extends AppCompatActivity {
 
     }
 
-    public void loginPassed()
+    public void goToLobby()
     {
         LobbyFragment lf = new LobbyFragment();
         getSupportFragmentManager().beginTransaction()
@@ -38,7 +38,7 @@ public class Main extends AppCompatActivity {
     public void checkUser(String uid, String name, String surname, String arrivalDate, String language, String room)
     {
         Globals.user = new User(uid,name, surname ,arrivalDate,language,room);
-
+        goToLobby();
     }
     class GetUserDataAsync extends AsyncTask<String, Integer, String>
     {

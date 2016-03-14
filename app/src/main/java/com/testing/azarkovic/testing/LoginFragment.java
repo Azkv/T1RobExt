@@ -37,6 +37,7 @@ public class LoginFragment extends Fragment implements ZXingScannerView.ResultHa
         ArrayList<BarcodeFormat> formats = new ArrayList<BarcodeFormat>();
         formats.add(BarcodeFormat.QR_CODE);
         scannerView.setFormats(formats);
+        scannerView.setResultHandler(this);
         return v;
     }
 
@@ -54,9 +55,9 @@ public class LoginFragment extends Fragment implements ZXingScannerView.ResultHa
     }
 
     @Override
-    public void onDetach() {
-        super.onDetach();
-        ((Main)this.getActivity()).loginPassed();
+    public void onDestroyView() {
+        super.onDestroyView();
+        ((Main)this.getActivity()).goToLobby();
     }
 
     @Override
